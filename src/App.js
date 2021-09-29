@@ -1,23 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import Header from './components/Header';
+import SearchForm from './components/SearchForm';
+import WeatherReport from './components/WeatherReport';
+import './components/FontAwesomeIcons'
+import { useState } from 'react'
+
+
 
 function App() {
+
+  const apiKey = process.env.REACT_APP_WEATHER_API_KEY
+  const [search, setSearch] = useState({})
+
+  // var weatherSpec = {location: 'Norwich'}
+  // Submit search
+  const searchWeather = (userInput) => {
+    setSearch({ ...userInput });
+  }
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container">
+      <Header />
+
+      {(search.location && search.forecast) && 
+      <WeatherReport apiKey={apiKey} location={search.location} forecast={search.forecast}/>}
+
+      <SearchForm onSearch={searchWeather}/>
     </div>
   );
 }
