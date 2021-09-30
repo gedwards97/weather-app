@@ -27,6 +27,7 @@ const SearchForm = ({ onSearch }) => {
                 <input type='text' placeholder='Search Location' 
                 value={location} onChange={(e) => setLocation(e.target.value)}/>
             </div>
+            
             <div className='form-control'>
                 <label>Forecast Type: </label>
                 <select name="forecast" onChange={(e) => setForecast(e.currentTarget.value)}>

@@ -21,7 +21,6 @@ function App() {
   return (
     <div className="container">
       <Header />
-
       {(search.location && search.forecast) && 
       <WeatherReport apiKey={apiKey} location={search.location} forecast={search.forecast}/>}
 
