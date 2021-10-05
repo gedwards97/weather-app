@@ -3,7 +3,7 @@ import CurrentForecast from './CurrentForecast';
 import HttpError from './HttpError';
 import LoadingIndicator from './LoadingIndicator';
 
-const WeatherReport = ({ apiKey, location, forecast }) => {
+const WeatherReport = ({ apiKey, location }) => {
 
     // Weather report states
     const [name, setName] = useState('');
@@ -56,7 +56,7 @@ const WeatherReport = ({ apiKey, location, forecast }) => {
 
             try {
                 const response = await fetch(currentURL) 
-                setLoading(true) 
+                setLoading(true);
                 const data = await response.json()
                 console.log(data)
                 setName(data.name) //

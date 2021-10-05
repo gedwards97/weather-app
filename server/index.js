@@ -9,6 +9,22 @@ app.use(cors())
 app.use(express.json())
 
 // ROUTES //
+
+// Get All Locations
+
+app.get("/locations", async (req, res) => {
+    try {
+        const locations = await pool.query("SELECT * FROM british_locations");
+
+        res.json(locations.rows);
+    
+    } catch (error) {
+        console.log(error.message);
+    }
+})
+
+// Get Location
+
 app.get("/locations/:name", async (req, res) => {
     try {
         const { name } = req.params;
@@ -23,8 +39,7 @@ app.get("/locations/:name", async (req, res) => {
     }
 })
 
-// Get location
-// app.get()
+
 
 app.listen(5000, () => {
     console.log("server started on port 5000")
