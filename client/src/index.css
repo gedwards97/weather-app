@@ -178,9 +178,22 @@ footer {
 }
 
 .day {
-  background-color: lightblue;
+  /* background-color: rgb(153, 204, 221); */
   height: 100%;
   width: 12%;
   margin: 0px 5px;
+  transition: 0.3s;
+  border: 1px solid black;
+  border-radius: 15%;
 }
 
+.day > img {
+  background-color: lightblue;
+  border-radius: 100%;
+}
+
+.day:hover {
+  cursor: pointer;
+  background-color: lightblue;
+  border: 0px;
+}

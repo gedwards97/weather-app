@@ -47,10 +47,12 @@ function App() {
   return (
     <div className="container">
       <Header />
+      <h1>Current Weather</h1>
       {search.location && 
       <WeatherReport apiKey={apiKey} location={search.location}/>}
 
       <SearchForm onSearch={searchWeather}/>
+      <h1>7-Day Forecast</h1>
       {forecastLocation.id &&
       <SevenDayForecast apiKey={apiKey} location={forecastLocation.location_name} latitude={forecastLocation.latitude} longitude={forecastLocation.longitude} />}
       <SevenDayForm onForecastSubmit={getForecastLocation}/>
